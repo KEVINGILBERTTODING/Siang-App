@@ -4,82 +4,66 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:padding="20dp"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_login"
+    android:background="@color/main"
     tools:context=".LoginActivity">
-    
-    <LinearLayout
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:background="@drawable/container_login"
-        android:layout_alignParentBottom="true"
-        android:padding="15dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Masuk"
-            android:textColor="@color/black"
-            android:fontFamily="@font/popsem"
-            android:textSize="21sp"/>
-
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Username"
-            android:id="@+id/etEmail"
-            android:layout_marginTop="20dp"
-            android:textSize="15sp"
-            android:fontFamily="@font/popmed"
-            android:background="@drawable/container_edittext"
-            android:padding="10dp"/>
-
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:layout_marginTop="20dp"
-            android:textSize="15sp"
-            android:inputType="textPassword"
-            android:fontFamily="@font/popmed"
-            android:background="@drawable/container_edittext"
-            android:padding="10dp"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:layout_marginTop="20dp"
-            app:backgroundTint="@color/light_blue"/>
+        android:layout_centerInParent="true"
+        app:cardCornerRadius="15dp"
+        android:layout_height="wrap_content"
+        app:contentPadding="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Belum memiliki akun? "
-                android:fontFamily="@font/popreg"/>
+            android:orientation="vertical">
 
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="120dp"
+                android:src="@drawable/main_logo"
+                android:layout_gravity="center_horizontal"/>
             <TextView
-                android:id="@+id/tvRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Daftar"
-                android:textColor="@color/black"
-                android:fontFamily="@font/popmed"/>
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/black2"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/popsembold"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
+                android:text="Aplikasi Pendaftaran Magang\nDPRD JAWA TENGAH"/>
+
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="Email"
+                android:textSize="15sp"
+                android:fontFamily="@font/popmed"
+                android:padding="11dp"
+                android:background="@drawable/container_edittext1"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:hint="Password"
+                android:fontFamily="@font/popmed"
+                android:padding="11dp"
+                android:textSize="15sp"
+                android:background="@drawable/container_edittext1"/>
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:layout_marginTop="20dp"/>
         </LinearLayout>
-
-    </LinearLayout>
-
-
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

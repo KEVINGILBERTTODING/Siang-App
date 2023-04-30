@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.SiangApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/light_blue</item>
+         <item name="colorPrimary">@color/main</item>
     </style>
 
     <style name="Theme.SiangApp" parent="Base.Theme.SiangApp" />
