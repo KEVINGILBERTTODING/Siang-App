@@ -7,23 +7,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class LoginActivity extends AppCompatActivity {
-    TextView tvDaftar;
+public class RegisterActivity extends AppCompatActivity {
+    TextView tvLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
         init();
 
-        tvDaftar.setOnClickListener(new View.OnClickListener() {
+
+        tvLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             }
         });
     }
+
     private void init() {
-        tvDaftar = findViewById(R.id.tvDaftar);
+        tvLogin = findViewById(R.id.tvLogin);
     }
 }

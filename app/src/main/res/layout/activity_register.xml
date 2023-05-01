@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/main"
+
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/_13sdp"
+        android:layout_centerInParent="true"
+        app:cardCornerRadius="15dp"
+        android:layout_height="wrap_content"
+        app:contentPadding="20dp">
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/main_logo"
+                    android:layout_gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="@color/black2"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/popsem"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Registrasi Calon Peserta Magang"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Lengkap"
+                    android:layout_marginTop="20dp"
+                    android:textSize="@dimen/_11ssp"
+                    android:fontFamily="@font/popmed"/>
+
+                <EditText
+                    android:id="@+id/etNamaLengkap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/popmed"
+                    android:padding="11dp"
+                    android:background="@drawable/container_edittext1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alamat Rumah"
+                    android:layout_marginTop="10dp"
+                    android:textSize="@dimen/_11ssp"
+                    android:fontFamily="@font/popmed"/>
+
+                <EditText
+                    android:id="@+id/etAlamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/popmed"
+                    android:padding="11dp"
+                    android:background="@drawable/container_edittext1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agama"
+                    android:layout_marginTop="10dp"
+                    android:textSize="@dimen/_11ssp"
+                    android:fontFamily="@font/popmed"/>
+                <Spinner
+                    android:id="@+id/spAgama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:hint="Alamat rumah"
+                    android:fontFamily="@font/popmed"
+                    android:padding="11dp"
+                    android:textSize="15sp"
+                    android:background="@drawable/container_edittext1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jenis Kelamin"
+                    android:layout_marginTop="10dp"
+                    android:textSize="@dimen/_11ssp"
+                    android:fontFamily="@font/popmed"/>
+                <Spinner
+                    android:id="@+id/spJk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:hint="Alamat rumah"
+                    android:fontFamily="@font/popmed"
+                    android:padding="11dp"
+                    android:textSize="15sp"
+                    android:background="@drawable/container_edittext1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Asal Sekolah"
+                    android:layout_marginTop="10dp"
+                    android:textSize="@dimen/_11ssp"
+                    android:fontFamily="@font/popmed"/>
+
+                <EditText
+                    android:id="@+id/etAsalSekolah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/popmed"
+                    android:padding="11dp"
+                    android:background="@drawable/container_edittext1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alamat Sekolah"
+                    android:layout_marginTop="10dp"
+                    android:textSize="@dimen/_11ssp"
+                    android:fontFamily="@font/popmed"/>
+
+                <EditText
+                    android:id="@+id/etAlamatSekolah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/popmed"
+                    android:padding="11dp"
+                    android:background="@drawable/container_edittext1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jurusan"
+                    android:layout_marginTop="10dp"
+                    android:textSize="@dimen/_11ssp"
+                    android:fontFamily="@font/popmed"/>
+
+                <EditText
+                    android:id="@+id/etJurusan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/popmed"
+                    android:padding="11dp"
+                    android:background="@drawable/container_edittext1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nomor Induk Siswa / Mahasiswa"
+                    android:layout_marginTop="10dp"
+                    android:textSize="@dimen/_11ssp"
+                    android:fontFamily="@font/popmed"/>
+
+                <EditText
+                    android:id="@+id/etNim"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/popmed"
+                    android:padding="11dp"
+                    android:background="@drawable/container_edittext1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alamat Email"
+                    android:layout_marginTop="10dp"
+                    android:textSize="@dimen/_11ssp"
+                    android:fontFamily="@font/popmed"/>
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/popmed"
+                    android:padding="11dp"
+                    android:background="@drawable/container_edittext1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No Telepon"
+                    android:layout_marginTop="10dp"
+                    android:textSize="@dimen/_11ssp"
+                    android:fontFamily="@font/popmed"/>
+
+                <EditText
+                    android:id="@+id/etTelepon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:inputType="number"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/popmed"
+                    android:padding="11dp"
+                    android:background="@drawable/container_edittext1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Password"
+                    android:layout_marginTop="10dp"
+                    android:textSize="@dimen/_11ssp"
+                    android:fontFamily="@font/popmed"/>
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:inputType="number"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/popmed"
+                    android:padding="11dp"
+                    android:background="@drawable/container_edittext1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Password Konfirmasi"
+                    android:layout_marginTop="10dp"
+                    android:textSize="@dimen/_11ssp"
+                    android:fontFamily="@font/popmed"/>
+
+                <EditText
+                    android:id="@+id/etPassKonfir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:inputType="number"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/popmed"
+                    android:padding="11dp"
+                    android:background="@drawable/container_edittext1"/>
+
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Login"
+                    android:layout_marginTop="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sudah punya akun? "
+                        android:textSize="@dimen/_11ssp"
+                        android:fontFamily="@font/popmed"/>
+
+                    <TextView
+                        android:id="@+id/tvLogin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Login"
+                        android:textSize="@dimen/_11ssp"
+                        android:fontFamily="@font/popsem"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
