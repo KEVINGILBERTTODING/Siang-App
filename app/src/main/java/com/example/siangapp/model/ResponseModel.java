@@ -13,22 +13,67 @@ public class ResponseModel implements Serializable {
     Boolean status;
     @SerializedName("message")
     String message;
+    @SerializedName("nama_peserta")
+    String namaPeserta;
+    @SerializedName("id")
+    String userId;
+    @SerializedName("role_id")
+    Integer roleId;
 
-    public ResponseModel(Integer code, Boolean status, String message) {
+    public ResponseModel(Integer code, Boolean status, String message, String namaPeserta, String userId, Integer roleId) {
         this.code = code;
         this.status = status;
         this.message = message;
+        this.namaPeserta = namaPeserta;
+        this.userId = userId;
+        this.roleId = roleId;
     }
 
     public Integer getCode() {
         return code;
     }
 
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
     public Boolean getStatus() {
         return status;
     }
 
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
     public String getMessage() {
         return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getNamaPeserta() {
+        return namaPeserta;
+    }
+
+    public void setNamaPeserta(String namaPeserta) {
+        this.namaPeserta = namaPeserta;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 }
