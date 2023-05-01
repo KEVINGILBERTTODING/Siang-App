@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import es.dmoral.toasty.Toasty;
+
 public class LoginActivity extends AppCompatActivity {
     TextView tvDaftar;
 
@@ -22,7 +24,10 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
+
+        Toasty.success(getApplicationContext(), "Berhasi registrasi", Toasty.LENGTH_SHORT).show();
     }
+
     private void init() {
         tvDaftar = findViewById(R.id.tvDaftar);
     }
