@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.framePesertaMagang, new HomeFragment()).commit();
 
                     return true;
-                } else if (item.getItemId() == R.id.menuTask) {
+                } else if (item.getItemId() == R.id.menuProject) {
 
                     return true;
 

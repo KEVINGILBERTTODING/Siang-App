@@ -3,12 +3,183 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     tools:context=".FragmentPesertaMagang.HomeFragment">
 
-    <TextView
-        android:id="@+id/tvUsername"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:text="Hai,...."/>
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/container_header"
+            android:padding="@dimen/_14sdp"
+            android:layout_height="@dimen/_80sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="Halo, Selamat Datang"
+                    android:fontFamily="@font/popmed"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11ssp"/>
+                <TextView
+                    android:id="@+id/tvUsername"
+                    android:layout_width="match_parent"
+                    android:text="Nafisa"
+                    android:fontFamily="@font/popsem"
+                    android:textColor="@color/white"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_18ssp"/>
+
+            </LinearLayout>
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_height="@dimen/_45sdp"
+                android:src="@color/white"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_14sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Dashboard"
+                android:fontFamily="@font/popsem"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_14ssp"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvStatus"
+                app:cardCornerRadius="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/yellow"
+                app:contentPadding="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tvStatus"
+                        android:layout_width="match_parent"
+                        android:text="Menunggu konfirmasi"
+                        android:fontFamily="@font/popmed"
+                        android:textColor="@color/white"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10ssp"/>
+
+                    <TextView
+                        android:id="@+id/tvAlasan"
+                        android:layout_width="match_parent"
+                        android:fontFamily="@font/popmed"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:textColor="@color/white"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10ssp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvMenuKegiatan"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="@color/main"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:contentPadding="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="Kegiatan"
+                            android:fontFamily="@font/popsem"
+                            android:textColor="@color/white"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_14ssp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="Kelola Kegiatan Magang Anda"
+                            android:fontFamily="@font/popmed"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:textColor="@color/white"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_11ssp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvMenuProject"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="@color/main"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:contentPadding="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="Project"
+                            android:fontFamily="@font/popsem"
+                            android:textColor="@color/white"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_14ssp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="Kelola Project Pribadi Anda"
+                            android:fontFamily="@font/popmed"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:textColor="@color/white"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_11ssp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
 </RelativeLayout>
