@@ -139,12 +139,9 @@ public class PesertaKegiatanAdapter extends RecyclerView.Adapter<PesertaKegiatan
                                                         Toasty.success(context, "Berhasil menghapus kegiatan", Toasty.LENGTH_SHORT).show();
                                                         kegiatanModelList.remove(getAdapterPosition());
                                                         notifyDataSetChanged();
-
-
-                                                    }else {
+                                                    } else {
                                                         progressBar.dismiss();
                                                         Toasty.error(context, "Terjadi kesalahan", Toasty.LENGTH_SHORT).show();
-
                                                     }
 
                                                 }
@@ -183,21 +180,23 @@ public class PesertaKegiatanAdapter extends RecyclerView.Adapter<PesertaKegiatan
 
                                         HashMap map = new HashMap();
                                         map.put("isi_kegiatan", RequestBody.create(MediaType.parse("text/plain"), etKegiatan.getText().toString()));
-                                        map.put("user_id", RequestBody.create(MediaType.parse("text/plain"), "34"));
+                                        map.put("id", RequestBody.create(MediaType.parse("text/plain"), String.valueOf(kegiatanModelList.get(getAdapterPosition()).getId())));
 
 
-                                        pesertaInterface.insertKegiatan(map).enqueue(new Callback<ResponseModel>() {
+                                        pesertaInterface.updateKegiatan(map).enqueue(new Callback<ResponseModel>() {
                                             @Override
                                             public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                                                 if (response.isSuccessful() && response.body().getCode() == 200) {
                                                     progressBar.dismiss();
                                                     dialogKegiatan.dismiss();
-                                                    Toasty.success(context, "Berhasil menambahkan kegiatan baru", Toasty.LENGTH_SHORT).show();
+                                                    kegiatanModelList.get(getAdapterPosition()).setIsiKegiatan(etKegiatan.getText().toString());
+                                                    notifyDataSetChanged();
+                                                    Toasty.success(context, "Berhasil mengubah kegiatan baru", Toasty.LENGTH_SHORT).show();
 
 
                                                 }else {
                                                     progressBar.dismiss();
-                                                    Toasty.error(context, "Gagal menambahkan kegiatan baru", Toasty.LENGTH_SHORT).show();
+                                                    Toasty.error(context, "Gagal mengubah kegiatan baru", Toasty.LENGTH_SHORT).show();
 
                                                 }
                                             }
