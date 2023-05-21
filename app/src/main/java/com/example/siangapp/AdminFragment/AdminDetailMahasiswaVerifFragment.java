@@ -2,6 +2,7 @@ package com.example.siangapp.AdminFragment;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import com.example.siangapp.FileDownload;
 import com.example.siangapp.R;
 import com.example.siangapp.model.PendaftarModel;
+import com.example.siangapp.model.ResponseModel;
 import com.example.siangapp.util.AdminInterface;
 import com.example.siangapp.util.DataApi;
 
@@ -93,6 +95,100 @@ public class AdminDetailMahasiswaVerifFragment extends Fragment {
                         FileDownload fileDownload = new FileDownload(getContext());
                         fileDownload.downloadFile(url, title, description, fileName);
                     }
+                }
+            });
+            btnVerif.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
+                    alert.setCancelable(false).setTitle("Loading").setMessage("Verifikasi Pendaftar...");
+                    AlertDialog progressDialog = alert.create();
+                    progressDialog.show();
+
+                    adminInterface.verifPendaftar(userId).enqueue(new Callback<ResponseModel>() {
+                        @Override
+                        public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                            if (response.isSuccessful() && response.body().getCode() == 200) {
+                                progressDialog.dismiss();
+                                Toasty.success(getContext(), "Berhasil verifikasi pendaftar", Toasty.LENGTH_SHORT).show();
+                                getActivity().onBackPressed();
+
+                            }else {
+                                progressDialog.dismiss();
+                                Toasty.error(getContext(), "Terjadi kesalahan", Toasty.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseModel> call, Throwable t) {
+
+                            progressDialog.dismiss();
+                            Toasty.error(getContext(), "Tidak ada koneksi internet", Toasty.LENGTH_SHORT).show();
+
+                        }
+                    });
+                }
+            });
+            btnTolak.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Dialog dialogPenolakan = new Dialog(getContext());
+                    dialogPenolakan.setContentView(R.layout.layout_tolak);
+                    dialogPenolakan.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                    Button btnSimpan = dialogPenolakan.findViewById(R.id.btnSimpan);
+                    Button btnBatal = dialogPenolakan.findViewById(R.id.btnBatal);
+                    EditText etAlasan = dialogPenolakan.findViewById(R.id.etAlasan);
+                    dialogPenolakan.show();
+
+                    btnBatal.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialogPenolakan.dismiss();
+                        }
+                    });
+
+                    btnSimpan.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (etAlasan.getText().toString().isEmpty()) {
+                                etAlasan.setError("Alasan tidak boleh kosong");
+                                etAlasan.requestFocus();
+                                return;
+                            }else {
+                                AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
+                                alert.setCancelable(false).setTitle("Loading").setMessage("Tolak Pendaftar...");
+                                AlertDialog progressDialog = alert.create();
+                                progressDialog.show();
+
+                                adminInterface.rejectPendaftar(userId, etAlasan.getText().toString()).enqueue(new Callback<ResponseModel>() {
+                                    @Override
+                                    public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                                        if (response.isSuccessful() && response.body().getCode() == 200) {
+                                            progressDialog.dismiss();
+                                            dialogPenolakan.dismiss();
+                                            Toasty.success(getContext(), "Berhasil tolak pendaftar", Toasty.LENGTH_SHORT).show();
+                                            getActivity().onBackPressed();
+
+                                        }else {
+                                            progressDialog.dismiss();
+                                            Toasty.error(getContext(), "Terjadi kesalahan", Toasty.LENGTH_SHORT).show();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<ResponseModel> call, Throwable t) {
+
+                                        progressDialog.dismiss();
+                                        Toasty.error(getContext(), "Tidak ada koneksi internet", Toasty.LENGTH_SHORT).show();
+
+                                    }
+                                });
+
+                            }
+                        }
+                    });
+
+
                 }
             });
 
