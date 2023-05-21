@@ -16,4 +16,5 @@ public interface AdminInterface {
     Call<PendaftarModel> getDetailUser(
             @Query("user_id") String userId
     );
+
 }

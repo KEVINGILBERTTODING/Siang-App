@@ -1,6 +1,9 @@
 package com.example.siangapp.AdminFragment;
 
+import android.Manifest;
 import android.app.AlertDialog;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
@@ -13,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.siangapp.FileDownload;
 import com.example.siangapp.R;
 import com.example.siangapp.model.PendaftarModel;
 import com.example.siangapp.util.AdminInterface;
@@ -29,7 +33,7 @@ public class AdminDetailMahasiswaVerifFragment extends Fragment {
     Button btnVerif, btnTolak, btnKembali, btnDownload;
     TextView tvStatus;
     CardView cvStatus;
-    String userId;
+    String userId, suratKeterangan;
     AdminInterface adminInterface;
 
 
@@ -62,6 +66,33 @@ public class AdminDetailMahasiswaVerifFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     getActivity().onBackPressed();
+                }
+            });
+            btnDownload.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String url = DataApi.URL_DOWNLOAD_SURAT_KETERANGAN+userId;
+                    String title = suratKeterangan +".pdf";
+                    String description = "Downloading PDF file";
+                    String fileName = suratKeterangan + ".pdf";
+
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        if (getActivity().checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+
+                            String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                            requestPermissions(permissions, 1000);
+                        } else {
+
+                            FileDownload fileDownload = new FileDownload(getContext());
+                            fileDownload.downloadFile(url, title, description, fileName);
+
+                        }
+                    } else {
+
+                        FileDownload fileDownload = new FileDownload(getContext());
+                        fileDownload.downloadFile(url, title, description, fileName);
+                    }
                 }
             });
 
@@ -101,6 +132,7 @@ public class AdminDetailMahasiswaVerifFragment extends Fragment {
                             btnTolak.setVisibility(View.VISIBLE);
                             tvStatus.setText("Belum");
                         }
+                        suratKeterangan = response.body().getCertificate();
 
                         etNamaLengkap.setText(response.body().getName());
                         etAlamat.setText(response.body().getAddress());
