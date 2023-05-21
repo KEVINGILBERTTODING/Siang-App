@@ -38,7 +38,7 @@
                     android:fontFamily="@font/popsem"
                     android:textColor="@color/white"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_18ssp"/>
+                    android:textSize="@dimen/_15ssp"/>
 
             </LinearLayout>
 

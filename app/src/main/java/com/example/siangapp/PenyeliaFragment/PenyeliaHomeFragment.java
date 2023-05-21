@@ -64,6 +64,12 @@ public class PenyeliaHomeFragment extends Fragment {
             }
         });
 
+        cvMenuKegiatan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replace(new PenyeliaMahasiswaFragment());
+            }
+        });
 
         loadDataUser();
 

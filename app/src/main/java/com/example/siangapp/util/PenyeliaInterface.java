@@ -1,5 +1,6 @@
 package com.example.siangapp.util;
 
+import com.example.siangapp.model.KegiatanModel;
 import com.example.siangapp.model.PendaftarModel;
 
 import java.util.List;
@@ -12,5 +13,10 @@ public interface PenyeliaInterface {
     @GET("penyelia/getAllPendaftarByDivisi")
     Call<List<PendaftarModel>> getAllPendaftarByDivisi(
             @Query("divisi") String divisi
+    );
+
+    @GET("penyelia/getAllKegiatanByUserId")
+    Call<List<KegiatanModel>> getKegiatanByUserId(
+            @Query("user_id") String userId
     );
 }
