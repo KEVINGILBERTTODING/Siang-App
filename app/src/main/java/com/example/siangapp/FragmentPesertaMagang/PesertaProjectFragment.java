@@ -166,7 +166,7 @@ public class PesertaProjectFragment extends Fragment {
         AlertDialog progressBar = alert.create();
         progressBar.show();
 
-        pesertaInterface.getProjectByUserId("54").enqueue(new Callback<List<ProjectModel>>() {
+        pesertaInterface.getProjectByUserId(userId).enqueue(new Callback<List<ProjectModel>>() {
             @Override
             public void onResponse(Call<List<ProjectModel>> call, Response<List<ProjectModel>> response) {
                 if (response.isSuccessful() && response.body().size() > 0) {

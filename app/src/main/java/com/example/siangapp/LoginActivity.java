@@ -34,8 +34,18 @@ public class LoginActivity extends AppCompatActivity {
         init();
 
         if (sharedPreferences.getBoolean("logged_in", false)){
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            finish();
+            if (sharedPreferences.getString("role_id", null).equals("3")) {
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                finish();
+            } else if (sharedPreferences.getString("role_id", null).equals("1")) {
+                startActivity(new Intent(LoginActivity.this, AdminMainActivity.class));
+                finish();
+
+            }else if (sharedPreferences.getString("role_id", null).equals("2")) {
+                startActivity(new Intent(LoginActivity.this, AdminMainActivity.class));
+                finish();
+
+            }
         }
 
         tvDaftar.setOnClickListener(new View.OnClickListener() {
@@ -71,14 +81,30 @@ public class LoginActivity extends AppCompatActivity {
                                 public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                                     ResponseModel responseModel = response.body();
                                     if (response.isSuccessful() && responseModel.getCode() == 200) {
-                                        editor.putBoolean("logged_in", true);
-                                        editor.putString("nama", responseModel.getNamaPeserta());
-                                        editor.putString("user_id", responseModel.getUserId());
-                                        editor.apply();
-                                        Toasty.success(getApplicationContext(), "Selamat datang " + responseModel.getNamaPeserta()).show();
-                                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                                        finish();
-                                        progressDialog.dismiss();
+                                        if (response.body().getRoleId() == 3) { // peserta magang
+                                            editor.putBoolean("logged_in", true);
+                                            editor.putString("nama", responseModel.getNamaPeserta());
+                                            editor.putString("user_id", responseModel.getUserId());
+                                            editor.putString("role_id", String.valueOf(responseModel.getRoleId()));
+                                            editor.apply();
+                                            Toasty.success(getApplicationContext(), "Selamat datang " + responseModel.getNamaPeserta()).show();
+                                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                            finish();
+                                            progressDialog.dismiss();
+                                        } else if (response.body().getRoleId() == 1) { // admin
+                                            editor.putBoolean("logged_in", true);
+                                            editor.putString("nama", responseModel.getNamaPeserta());
+                                            editor.putString("user_id", responseModel.getUserId());
+                                            editor.putString("role_id", String.valueOf(responseModel.getRoleId()));
+                                            editor.apply();
+                                            Toasty.success(getApplicationContext(), "Selamat datang " + responseModel.getNamaPeserta()).show();
+                                            startActivity(new Intent(LoginActivity.this, AdminMainActivity.class));
+                                            finish();
+                                            progressDialog.dismiss();
+
+                                        } else if (response.body().getRoleId() == 2) { // penyelia
+
+                                        }
                                     }else {
                                         Toasty.error(getApplicationContext(), responseModel.getMessage(), Toasty.LENGTH_SHORT).show();
                                         progressDialog.dismiss();

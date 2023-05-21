@@ -113,7 +113,7 @@ public class PesertaHistoryProjectFragment extends Fragment {
                             map.put("isi_kegiatan", RequestBody.create(MediaType.parse("text/plain"), etKegiatan.getText().toString()));
                             map.put("progress", RequestBody.create(MediaType.parse("text/plain"), etProgress.getText().toString()));
                             map.put("note", RequestBody.create(MediaType.parse("text/plain"), etNotes.getText().toString()));
-                            map.put("user_id", RequestBody.create(MediaType.parse("text/plain"), "54"));
+                            map.put("user_id", RequestBody.create(MediaType.parse("text/plain"), userId));
 
 
                             pesertaInterface.insertHistoryProject(map).enqueue(new Callback<ResponseModel>() {
@@ -176,7 +176,7 @@ public class PesertaHistoryProjectFragment extends Fragment {
         AlertDialog progressBar = alert.create();
         progressBar.show();
 
-        pesertaInterface.getHistoryProjectByUserId("54").enqueue(new Callback<List<HistoryProjectModel>>() {
+        pesertaInterface.getHistoryProjectByUserId(userId).enqueue(new Callback<List<HistoryProjectModel>>() {
             @Override
             public void onResponse(Call<List<HistoryProjectModel>> call, Response<List<HistoryProjectModel>> response) {
                 if (response.isSuccessful() && response.body().size() > 0) {
