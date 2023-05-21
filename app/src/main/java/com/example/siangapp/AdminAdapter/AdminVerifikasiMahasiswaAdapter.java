@@ -1,6 +1,7 @@
 package com.example.siangapp.AdminAdapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,8 +9,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.siangapp.AdminFragment.AdminDetailMahasiswaVerifFragment;
 import com.example.siangapp.R;
 import com.example.siangapp.model.PendaftarModel;
 
@@ -76,6 +80,14 @@ public class AdminVerifikasiMahasiswaAdapter extends RecyclerView.Adapter<AdminV
 
         @Override
         public void onClick(View v) {
+
+            Fragment fragment = new AdminDetailMahasiswaVerifFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("user_id", pendaftarModelList.get(getAdapterPosition()).getUserId());
+            fragment.setArguments(bundle);
+            ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frameAdmin, fragment).addToBackStack(null)
+                    .commit();
 
 
         }

@@ -86,7 +86,7 @@
     <TextView
         android:id="@+id/tvEmpty"
         android:layout_width="match_parent"
-        android:text="Tidak ada kegiatan"
+        android:text="Tidak ada data"
         android:fontFamily="@font/popmed"
         android:layout_marginTop="@dimen/_5sdp"
         android:textColor="@color/black"

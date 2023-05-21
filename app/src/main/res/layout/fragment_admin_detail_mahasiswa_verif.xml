@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AdminFragment.AdminDetailMahasiswaVerifFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/container_header"
+        android:padding="@dimen/_14sdp"
+        android:layout_height="@dimen/_110sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Kelola verifikasi Peserta"
+                android:fontFamily="@font/popmed"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11ssp"/>
+            <TextView
+                android:id="@+id/tvUsername"
+                android:layout_width="match_parent"
+                android:text="Detail Peserta"
+                android:fontFamily="@font/popsem"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_18ssp"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvStatus"
+                android:layout_width="wrap_content"
+                android:backgroundTint="@color/white"
+                app:contentPadding="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_5sdp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_12ssp"
+                    android:fontFamily="@font/popmed"
+                    android:textColor="@color/white"/>
+            </androidx.cardview.widget.CardView>
+
+
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            app:cardCornerRadius="15dp"
+            android:layout_height="wrap_content"
+            app:contentPadding="20dp">
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nama Lengkap"
+                        android:textSize="@dimen/_11ssp"
+                        android:fontFamily="@font/popmed"/>
+
+                    <EditText
+                        android:id="@+id/etNamaLengkap"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:enabled="false"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/popmed"
+                        android:padding="11dp"
+                        android:background="@drawable/container_edittext1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alamat Rumah"
+                        android:layout_marginTop="10dp"
+                        android:textSize="@dimen/_11ssp"
+                        android:fontFamily="@font/popmed"/>
+
+                    <EditText
+                        android:id="@+id/etAlamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:enabled="false"
+
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/popmed"
+                        android:padding="11dp"
+                        android:background="@drawable/container_edittext1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Agama"
+                        android:layout_marginTop="10dp"
+                        android:textSize="@dimen/_11ssp"
+                        android:fontFamily="@font/popmed"/>
+                    <EditText
+                        android:id="@+id/etAgama"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:hint="Alamat rumah"
+                        android:enabled="false"
+
+                        android:fontFamily="@font/popmed"
+                        android:padding="11dp"
+                        android:textSize="15sp"
+                        android:background="@drawable/container_edittext1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jenis Kelamin"
+                        android:layout_marginTop="10dp"
+                        android:textSize="@dimen/_11ssp"
+                        android:fontFamily="@font/popmed"/>
+                    <EditText
+                        android:id="@+id/etJk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:hint="Alamat rumah"
+                        android:enabled="false"
+
+                        android:fontFamily="@font/popmed"
+                        android:padding="11dp"
+                        android:textSize="15sp"
+                        android:background="@drawable/container_edittext1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Asal Sekolah"
+                        android:layout_marginTop="10dp"
+                        android:textSize="@dimen/_11ssp"
+                        android:fontFamily="@font/popmed"/>
+
+                    <EditText
+                        android:id="@+id/etAsalSekolah"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+
+                        android:textSize="15sp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/popmed"
+                        android:padding="11dp"
+                        android:background="@drawable/container_edittext1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alamat Sekolah"
+                        android:layout_marginTop="10dp"
+                        android:textSize="@dimen/_11ssp"
+                        android:fontFamily="@font/popmed"/>
+
+                    <EditText
+                        android:id="@+id/etAlamatSekolah"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/popmed"
+                        android:padding="11dp"
+                        android:enabled="false"
+
+                        android:background="@drawable/container_edittext1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jurusan"
+                        android:layout_marginTop="10dp"
+                        android:textSize="@dimen/_11ssp"
+                        android:fontFamily="@font/popmed"/>
+
+                    <EditText
+                        android:id="@+id/etJurusan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/popmed"
+                        android:padding="11dp"
+                        android:enabled="false"
+
+                        android:background="@drawable/container_edittext1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nomor Induk Siswa / Mahasiswa"
+                        android:layout_marginTop="10dp"
+                        android:textSize="@dimen/_11ssp"
+                        android:fontFamily="@font/popmed"/>
+
+                    <EditText
+                        android:id="@+id/etNim"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/popmed"
+                        android:padding="11dp"
+                        android:enabled="false"
+
+                        android:background="@drawable/container_edittext1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alamat Email"
+                        android:layout_marginTop="10dp"
+                        android:textSize="@dimen/_11ssp"
+                        android:fontFamily="@font/popmed"/>
+
+                    <EditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:enabled="false"
+
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/popmed"
+                        android:padding="11dp"
+                        android:background="@drawable/container_edittext1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No Telepon"
+                        android:layout_marginTop="10dp"
+                        android:textSize="@dimen/_11ssp"
+                        android:fontFamily="@font/popmed"/>
+
+                    <EditText
+                        android:id="@+id/etTelepon"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:inputType="number"
+                        android:enabled="false"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/popmed"
+                        android:padding="11dp"
+                        android:background="@drawable/container_edittext1"/>
+
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Download Surat"
+                        android:id="@+id/btnDownload"
+                        app:backgroundTint="@color/green"
+                        android:layout_marginTop="20dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Verifikasi"
+                        android:visibility="gone"
+                        android:id="@+id/btnVerif"
+                        app:backgroundTint="@color/main"
+                        android:layout_marginTop="20dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tolak"
+                        android:visibility="gone"
+                        android:id="@+id/btnTolak"
+                        app:backgroundTint="@color/red"
+                        android:layout_marginTop="20dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kembali"
+                        android:id="@+id/btnKembali"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/light_gray"
+                        android:layout_marginTop="20dp"/>
+
+
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+</RelativeLayout>
