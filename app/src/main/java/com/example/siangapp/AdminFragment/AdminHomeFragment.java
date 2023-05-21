@@ -77,6 +77,8 @@ public class AdminHomeFragment extends Fragment {
         userId = sharedPreferences.getString("user_id", null);
         ivProfile = view.findViewById(R.id.ivProfile);
         cvMenuVerifikasi = view.findViewById(R.id.cvMenuVerifikasi);
+        cvMenuDataMahasiswa = view.findViewById(R.id.cvMenuDataMahasiswa);
+        cvMenuLaporan = view.findViewById(R.id.cvMenuLaporan);
         pendaftarInterface = DataApi.getClient().create(PendaftarInterface.class);
 
         loadDataUser();
@@ -85,6 +87,22 @@ public class AdminHomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 replace(new AdminVerifikasiMahasiswaFragment());
+            }
+        });
+
+        cvMenuDataMahasiswa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replace(new AdminDivisiFragment());
+            }
+        });
+
+
+        cvMenuLaporan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameAdmin,new AdminLaporanMahasiswaFragment())
+                        .addToBackStack(null).commit();
             }
         });
 

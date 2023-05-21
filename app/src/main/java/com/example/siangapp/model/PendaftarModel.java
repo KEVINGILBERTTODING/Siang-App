@@ -80,7 +80,19 @@ public class PendaftarModel implements Serializable {
     @SerializedName("tugas")
     Integer task;
 
-    public PendaftarModel(String userId, String name, String nim, String image, String address, String gender, String religion, String school, String schoolAddress, String major, String email, String phoneNumber, String password, Integer roleId, String dataCreated, Integer division, String certificate, String startDate, String endDate, String acc, String reason, Integer status, Integer rating, Integer task) {
+    @SerializedName("inovasi")
+    String inovasi;
+
+    @SerializedName("kerja_sama")
+    String kerjaSama;
+    @SerializedName("disiplin")
+    String disiplin;
+    @SerializedName("rata")
+    String rata;
+
+
+    public PendaftarModel(String userId, String disiplin, String kerjaSama, String inovasi
+                          ,String rata, String name, String nim, String image, String address, String gender, String religion, String school, String schoolAddress, String major, String email, String phoneNumber, String password, Integer roleId, String dataCreated, Integer division, String certificate, String startDate, String endDate, String acc, String reason, Integer status, Integer rating, Integer task) {
         this.userId = userId;
         this.name = name;
         this.nim = nim;
@@ -92,6 +104,10 @@ public class PendaftarModel implements Serializable {
         this.schoolAddress = schoolAddress;
         this.major = major;
         this.email = email;
+        this.inovasi = inovasi;
+        this.disiplin = disiplin;
+        this.kerjaSama = kerjaSama;
+        this.rata = rata;
         this.phoneNumber = phoneNumber;
         this.password = password;
         this.roleId = roleId;
@@ -297,5 +313,37 @@ public class PendaftarModel implements Serializable {
 
     public void setTask(Integer task) {
         this.task = task;
+    }
+
+    public String getInovasi() {
+        return inovasi;
+    }
+
+    public void setInovasi(String inovasi) {
+        this.inovasi = inovasi;
+    }
+
+    public String getKerjaSama() {
+        return kerjaSama;
+    }
+
+    public void setKerjaSama(String kerjaSama) {
+        this.kerjaSama = kerjaSama;
+    }
+
+    public String getDisiplin() {
+        return disiplin;
+    }
+
+    public void setDisiplin(String disiplin) {
+        this.disiplin = disiplin;
+    }
+
+    public String getRata() {
+        return rata;
+    }
+
+    public void setRata(String rata) {
+        this.rata = rata;
     }
 }

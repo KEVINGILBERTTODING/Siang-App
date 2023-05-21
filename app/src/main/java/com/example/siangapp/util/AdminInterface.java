@@ -1,5 +1,6 @@
 package com.example.siangapp.util;
 
+import com.example.siangapp.model.DivisiModel;
 import com.example.siangapp.model.PendaftarModel;
 import com.example.siangapp.model.ResponseModel;
 
@@ -34,5 +35,21 @@ public interface AdminInterface {
             @Field("user_id") String userId,
             @Field("alasan") String alasan
     );
+
+    @GET("admin/getalldivisi")
+    Call<List<DivisiModel>> getAllDivisi();
+
+    @GET("admin/getPesertaByDivisi")
+    Call<List<PendaftarModel>> getPesertaByDivisi(
+            @Query("divisi") String divisi
+    );
+
+    @GET("admin/getPesertaAcc")
+    Call<List<PendaftarModel>> getPesertaAcc(
+    );
+
+
+
+
 
 }

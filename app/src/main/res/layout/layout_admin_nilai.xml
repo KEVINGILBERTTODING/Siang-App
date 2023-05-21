@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="@dimen/_20sdp"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_20sdp">
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popsem"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:text="Penilaian Magang"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inovasi"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="@font/popmed"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11sdp"/>
+            <EditText
+                android:id="@+id/etInovasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/container_edittext"
+                android:fontFamily="@font/popmed"
+                android:hint="Nilai Inovasi"
+                android:maxLength="3"
+                android:padding="@dimen/_10sdp"
+                android:inputType="number"
+                android:textSize="@dimen/_11ssp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kerja Sama"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="@font/popmed"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11sdp"/>
+            <EditText
+                android:id="@+id/etKerjaSama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/container_edittext"
+                android:fontFamily="@font/popmed"
+                android:hint="Nilai Kerja Sama"
+                android:maxLength="3"
+                android:padding="@dimen/_10sdp"
+                android:inputType="number"
+                android:textSize="@dimen/_11ssp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Disiplin"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="@font/popmed"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11sdp"/>
+            <EditText
+                android:id="@+id/etDisiplin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/container_edittext"
+                android:fontFamily="@font/popmed"
+                android:hint="Nilai Disiplin"
+                android:maxLength="3"
+                android:padding="@dimen/_10sdp"
+                android:inputType="number"
+                android:textSize="@dimen/_11ssp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rata-rata"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="@font/popmed"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11sdp"/>
+            <EditText
+                android:id="@+id/etRataRata"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/container_edittext"
+                android:fontFamily="@font/popmed"
+                android:hint="Nilai Disiplin"
+                android:maxLength="3"
+                android:padding="@dimen/_10sdp"
+                android:inputType="number"
+                android:textSize="@dimen/_11ssp" />
+
+
+
+
+
+
+
+
+
+
+            <com.google.android.material.button.MaterialButton
+
+                android:id="@+id/btnDelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Delete"
+                android:visibility="gone"
+                app:backgroundTint="@color/red"
+                android:textAllCaps="false" />
+
+            <com.google.android.material.button.MaterialButton
+
+                android:id="@+id/btnTutup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Tutup"
+                app:backgroundTint="@color/light_gray"
+                android:textColor="@color/black"
+                android:textAllCaps="false" />
+
+
+
+        </LinearLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
@@ -208,7 +209,7 @@ public class AdminDetailMahasiswaVerifFragment extends Fragment {
 
         adminInterface.getDetailUser(userId).enqueue(new Callback<PendaftarModel>() {
             @Override
-            public void onResponse(Call<PendaftarModel> call, Response<PendaftarModel> response) {
+            public void onResponse(Call<PendaftarModel> call, @NonNull Response<PendaftarModel> response) {
                 if (response.isSuccessful() && response.body() != null) {
 
                         if (response.body().getAcc().equals("lolos")) {

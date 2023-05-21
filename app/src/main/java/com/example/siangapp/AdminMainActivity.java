@@ -6,7 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.siangapp.AdminFragment.AdminDataMahasiswaFragment;
+import com.example.siangapp.AdminFragment.AdminDivisiFragment;
 import com.example.siangapp.AdminFragment.AdminHomeFragment;
+import com.example.siangapp.AdminFragment.AdminLaporanMahasiswaFragment;
 import com.example.siangapp.FragmentPesertaMagang.HomeFragment;
 import com.example.siangapp.FragmentPesertaMagang.PesertaKegiatanFragment;
 import com.example.siangapp.FragmentPesertaMagang.PesertaProjectFragment;
@@ -32,12 +35,12 @@ public class AdminMainActivity extends AppCompatActivity {
                     return true;
                 } else if (item.getItemId() == R.id.menuDataMahasiswa) {
 
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frameAdmin, new PesertaProjectFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frameAdmin, new AdminDivisiFragment()).commit();
                     return true;
 
                 } else if (item.getItemId() == R.id.menuLaporan) {
 
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frameAdmin, new PesertaKegiatanFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frameAdmin, new AdminLaporanMahasiswaFragment()).commit();
                     return true;
 
                 } else if (item.getItemId() == R.id.menuProfile) {
