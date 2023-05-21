@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="@dimen/_20sdp"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_20sdp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popsem"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:text="Form Kegiatan Project"
+                android:textSize="@dimen/_14ssp" />
+
+            <EditText
+                android:layout_marginTop="@dimen/_20sdp"
+                android:id="@+id/etProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/container_edittext"
+                android:fontFamily="@font/popmed"
+                android:hint="Progress"
+                android:padding="@dimen/_10sdp"
+                android:textSize="@dimen/_11ssp" />
+            <EditText
+                android:layout_marginTop="@dimen/_20sdp"
+                android:id="@+id/etKegiatan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/container_edittext"
+                android:fontFamily="@font/popmed"
+                android:lines="4"
+                android:gravity="start"
+                android:hint="Kegiatan hari ini..."
+                android:padding="@dimen/_10sdp"
+                android:textSize="@dimen/_11ssp" />
+
+            <EditText
+                android:layout_marginTop="@dimen/_20sdp"
+                android:id="@+id/etNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/container_edittext"
+                android:fontFamily="@font/popmed"
+                android:lines="2"
+                android:gravity="start"
+                android:hint="Catatan..."
+                android:padding="@dimen/_10sdp"
+                android:textSize="@dimen/_11ssp" />
+
+
+
+            <com.google.android.material.button.MaterialButton
+
+                android:id="@+id/btnSimpan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="Simpan"
+                android:textAllCaps="false" />
+
+            <com.google.android.material.button.MaterialButton
+
+                android:id="@+id/btnDelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Delete"
+                android:visibility="gone"
+                app:backgroundTint="@color/red"
+                android:textAllCaps="false" />
+
+            <com.google.android.material.button.MaterialButton
+
+                android:id="@+id/btnBatal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Batal"
+                app:backgroundTint="@color/light_gray"
+                android:textColor="@color/black"
+                android:textAllCaps="false" />
+
+
+
+        </LinearLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

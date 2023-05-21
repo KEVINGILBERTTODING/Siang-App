@@ -5,12 +5,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.appcompat.widget.SearchView;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +12,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.SearchView;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.siangapp.R;
 import com.example.siangapp.model.KegiatanModel;
 import com.example.siangapp.model.PendaftarModel;
+import com.example.siangapp.model.ProjectModel;
 import com.example.siangapp.model.ResponseModel;
 import com.example.siangapp.pesertaAdapter.PesertaKegiatanAdapter;
+import com.example.siangapp.pesertaAdapter.PesertaProjectAdapter;
 import com.example.siangapp.util.DataApi;
 import com.example.siangapp.util.PendaftarInterface;
 import com.example.siangapp.util.PesertaInterface;
@@ -39,10 +40,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PesertaKegiatanFragment extends Fragment {
-    RecyclerView rvKegiatan;
-    PesertaKegiatanAdapter pesertaKegiatanAdapter;
-    List<KegiatanModel> kegiatanModelList;
+public class PesertaProjectFragment extends Fragment {
+    RecyclerView rvProject;
+    PesertaProjectAdapter pesertaProjectAdapter;
+    List<ProjectModel> projectModelList;
     FloatingActionButton fabInsert;
     PendaftarInterface pendaftarInterface;
     SearchView searchView;
@@ -55,8 +56,8 @@ public class PesertaKegiatanFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_peserta_kegiatan, container, false);
-        rvKegiatan = view.findViewById(R.id.rvKegiatanPeserta);
+        View view = inflater.inflate(R.layout.fragment_peserta_project, container, false);
+        rvProject = view.findViewById(R.id.rvProjectPeserta);
         pesertaInterface = DataApi.getClient().create(PesertaInterface.class);
         sharedPreferences = getContext().getSharedPreferences("user_data", Context.MODE_PRIVATE);
         userId = sharedPreferences.getString("user_id", null);
@@ -65,7 +66,7 @@ public class PesertaKegiatanFragment extends Fragment {
         tvEmpty = view.findViewById(R.id.tvEmpty);
         searchView = view.findViewById(R.id.searchView);
         fabInsert = view.findViewById(R.id.fabInsert);
-        getKegiatan();
+        getProject();
         loadDataUser();
 
         fabInsert.setOnClickListener(new View.OnClickListener() {
@@ -113,8 +114,8 @@ public class PesertaKegiatanFragment extends Fragment {
                                         progressBar.dismiss();
                                         dialogKegiatan.dismiss();
                                         Toasty.success(getContext(), "Berhasil menambahkan kegiatan baru", Toasty.LENGTH_SHORT).show();
-                                        rvKegiatan.setAdapter(null);
-                                        getKegiatan();
+                                        rvProject.setAdapter(null);
+                                        getProject();
 
                                     }else {
                                         progressBar.dismiss();
@@ -126,7 +127,7 @@ public class PesertaKegiatanFragment extends Fragment {
                                 @Override
                                 public void onFailure(Call<ResponseModel> call, Throwable t) {
                                     progressBar.dismiss();
-                                    Toasty.error(getContext(), "Tidak ada koneksi interner", Toasty.LENGTH_SHORT).show();
+                                    Toasty.error(getContext(), "Tidak ada koneksi internet", Toasty.LENGTH_SHORT).show();
 
                                 }
                             });
@@ -159,24 +160,24 @@ public class PesertaKegiatanFragment extends Fragment {
 
     }
 
-    private void getKegiatan() {
+    private void getProject() {
         AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
         alert.setTitle("Loading").setMessage("Memuat data...").setCancelable(false);
         AlertDialog progressBar = alert.create();
         progressBar.show();
 
-        pesertaInterface.getKegiatanByUserId(userId).enqueue(new Callback<List<KegiatanModel>>() {
+        pesertaInterface.getProjectByUserId("54").enqueue(new Callback<List<ProjectModel>>() {
             @Override
-            public void onResponse(Call<List<KegiatanModel>> call, Response<List<KegiatanModel>> response) {
+            public void onResponse(Call<List<ProjectModel>> call, Response<List<ProjectModel>> response) {
                 if (response.isSuccessful() && response.body().size() > 0) {
-                    kegiatanModelList = response.body();
+                    projectModelList = response.body();
                     progressBar.dismiss();
                     tvEmpty.setVisibility(View.GONE);
-                    pesertaKegiatanAdapter = new PesertaKegiatanAdapter(getContext(), kegiatanModelList);
+                    pesertaProjectAdapter = new PesertaProjectAdapter(getContext(), projectModelList);
                     linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-                    rvKegiatan.setAdapter(pesertaKegiatanAdapter);
-                    rvKegiatan.setLayoutManager(linearLayoutManager);
-                    rvKegiatan.setHasFixedSize(true);
+                    rvProject.setAdapter(pesertaProjectAdapter);
+                    rvProject.setLayoutManager(linearLayoutManager);
+                    rvProject.setHasFixedSize(true);
 
 
 
@@ -189,7 +190,7 @@ public class PesertaKegiatanFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<KegiatanModel>> call, Throwable t) {
+            public void onFailure(Call<List<ProjectModel>> call, Throwable t) {
                 progressBar.dismiss();
                 tvEmpty.setVisibility(View.GONE);
                 Toasty.error(getContext(), "Tidak ada koneksi internet", Toasty.LENGTH_SHORT).show();
@@ -241,17 +242,17 @@ public class PesertaKegiatanFragment extends Fragment {
     }
 
     private void filter(String newText) {
-        ArrayList<KegiatanModel> filteredList = new ArrayList<>();
-        for (KegiatanModel item : kegiatanModelList) {
-            if (item.getIsiKegiatan().toLowerCase().contains(newText.toLowerCase())) {
+        ArrayList<ProjectModel> filteredList = new ArrayList<>();
+        for (ProjectModel item : projectModelList) {
+            if (item.getJudulTugas().toLowerCase().contains(newText.toLowerCase())) {
                 filteredList.add(item);
             }
         }
-        pesertaKegiatanAdapter.filter(filteredList);
+        pesertaProjectAdapter.filter(filteredList);
         if (filteredList.isEmpty())  {
 
         }else {
-            pesertaKegiatanAdapter.filter(filteredList);
+            pesertaProjectAdapter.filter(filteredList);
         }
     }
 }

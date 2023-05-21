@@ -97,6 +97,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        cvProject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replace(new PesertaProjectFragment());
+            }
+        });
+
 
 
         return view;

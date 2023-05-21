@@ -5,7 +5,7 @@
     android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
-    tools:context=".FragmentPesertaMagang.PesertaKegiatanFragment">
+    tools:context=".FragmentPesertaMagang.PesertaHistoryProjectFragment">
 
 
 
@@ -26,7 +26,7 @@
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="match_parent"
-                    android:text="Kelola Kegiatan Magang"
+                    android:text="Kelola History Project"
                     android:fontFamily="@font/popmed"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
@@ -34,7 +34,7 @@
                 <TextView
                     android:id="@+id/tvUsername"
                     android:layout_width="match_parent"
-                    android:text="Kegiatan Magang"
+                    android:text="History Project"
                     android:fontFamily="@font/popsem"
                     android:textColor="@color/white"
                     android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:text="Daftar kegiatan"
+                android:text="Daftar history"
                 android:fontFamily="@font/popsem"
                 android:textColor="@color/black"
                 android:layout_height="wrap_content"

@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.siangapp.FragmentPesertaMagang.HomeFragment;
+import com.example.siangapp.FragmentPesertaMagang.PesertaKegiatanFragment;
+import com.example.siangapp.FragmentPesertaMagang.PesertaProjectFragment;
 import com.example.siangapp.FragmentPesertaMagang.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -33,9 +35,17 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 } else if (item.getItemId() == R.id.menuProject) {
 
+                    getSupportFragmentManager().beginTransaction().replace(R.id.framePesertaMagang, new PesertaProjectFragment()).commit();
                     return true;
 
-                } else if (item.getItemId() == R.id.menuProfile) {
+                } else if (item.getItemId() == R.id.menuKegiatan) {
+
+                    getSupportFragmentManager().beginTransaction().replace(R.id.framePesertaMagang, new PesertaKegiatanFragment()).commit();
+                    return true;
+
+                }
+
+                else if (item.getItemId() == R.id.menuProfile) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.framePesertaMagang, new ProfileFragment()).commit();
 
 
