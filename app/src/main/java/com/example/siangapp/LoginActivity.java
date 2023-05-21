@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
 
             }else if (sharedPreferences.getString("role_id", null).equals("2")) {
-                startActivity(new Intent(LoginActivity.this, AdminMainActivity.class));
+                startActivity(new Intent(LoginActivity.this, PenyeliaMainActiviy.class));
                 finish();
 
             }
@@ -104,6 +104,16 @@ public class LoginActivity extends AppCompatActivity {
 
                                         } else if (response.body().getRoleId() == 2) { // penyelia
 
+                                            editor.putBoolean("logged_in", true);
+                                            editor.putString("nama", responseModel.getNamaPeserta());
+                                            editor.putString("user_id", responseModel.getUserId());
+                                            editor.putString("role_id", String.valueOf(responseModel.getRoleId()));
+                                            editor.putString("divisi", response.body().getDivisi());
+                                            editor.apply();
+                                            Toasty.success(getApplicationContext(), "Selamat datang " + responseModel.getNamaPeserta()).show();
+                                            startActivity(new Intent(LoginActivity.this, PenyeliaMainActiviy.class));
+                                            finish();
+                                            progressDialog.dismiss();
                                         }
                                     }else {
                                         Toasty.error(getApplicationContext(), responseModel.getMessage(), Toasty.LENGTH_SHORT).show();

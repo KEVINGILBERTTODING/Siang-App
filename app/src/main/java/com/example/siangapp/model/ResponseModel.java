@@ -19,14 +19,17 @@ public class ResponseModel implements Serializable {
     String userId;
     @SerializedName("role_id")
     Integer roleId;
+    @SerializedName("divisi")
+    String divisi;
 
-    public ResponseModel(Integer code, Boolean status, String message, String namaPeserta, String userId, Integer roleId) {
+    public ResponseModel(Integer code, String divisi, Boolean status, String message, String namaPeserta, String userId, Integer roleId) {
         this.code = code;
         this.status = status;
         this.message = message;
         this.namaPeserta = namaPeserta;
         this.userId = userId;
         this.roleId = roleId;
+        this.divisi = divisi;
     }
 
     public Integer getCode() {
@@ -75,5 +78,13 @@ public class ResponseModel implements Serializable {
 
     public void setRoleId(Integer roleId) {
         this.roleId = roleId;
+    }
+
+    public String getDivisi() {
+        return divisi;
+    }
+
+    public void setDivisi(String divisi) {
+        this.divisi = divisi;
     }
 }
