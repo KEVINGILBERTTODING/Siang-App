@@ -233,7 +233,7 @@
                             android:orientation="vertical">
                             <TextView
                                 android:layout_width="match_parent"
-                                android:text="Hasil Penelian"
+                                android:text="Hasil Penilaian"
                                 android:fontFamily="@font/popsem"
                                 android:textColor="@color/white"
                                 android:layout_height="wrap_content"

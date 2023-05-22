@@ -86,6 +86,13 @@ public class PenyeliaHomeFragment extends Fragment {
             }
         });
 
+        cvMenuHasilPenilaian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replace(new PenyeliaHasilPenilaianFragment());
+            }
+        });
+
 
 
         loadDataUser();

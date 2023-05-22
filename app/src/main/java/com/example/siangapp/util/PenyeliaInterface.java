@@ -66,6 +66,11 @@ public interface PenyeliaInterface {
             @PartMap Map<String, RequestBody> textData
     );
 
+    @GET("penyelia/getAllPendaftarSelesai")
+    Call<List<PendaftarModel>> getAllPendaftarSelesai(
+            @Query("divisi") String divisi
+    );
+
 
 
 }
