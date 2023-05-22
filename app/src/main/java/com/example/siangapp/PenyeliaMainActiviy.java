@@ -11,6 +11,8 @@ import com.example.siangapp.AdminFragment.AdminHomeFragment;
 import com.example.siangapp.AdminFragment.AdminLaporanMahasiswaFragment;
 import com.example.siangapp.FragmentPesertaMagang.ProfileFragment;
 import com.example.siangapp.PenyeliaFragment.PenyeliaHomeFragment;
+import com.example.siangapp.PenyeliaFragment.PenyeliaMahasiswaFragment;
+import com.example.siangapp.PenyeliaFragment.PenyeliaProjectFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -31,14 +33,14 @@ public class PenyeliaMainActiviy extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.framePenyelia, new PenyeliaHomeFragment()).commit();
 
                     return true;
-                } else if (item.getItemId() == R.id.menuDataMahasiswa) {
+                } else if (item.getItemId() == R.id.menuKegiatan) {
 
-                    getSupportFragmentManager().beginTransaction().replace(R.id.framePenyelia, new AdminDivisiFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.framePenyelia,new PenyeliaMahasiswaFragment()).commit();
                     return true;
 
-                } else if (item.getItemId() == R.id.menuLaporan) {
+                } else if (item.getItemId() == R.id.menuProject) {
 
-                    getSupportFragmentManager().beginTransaction().replace(R.id.framePenyelia, new AdminLaporanMahasiswaFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.framePenyelia, new PenyeliaProjectFragment()).commit();
                     return true;
 
                 } else if (item.getItemId() == R.id.menuProfile) {
