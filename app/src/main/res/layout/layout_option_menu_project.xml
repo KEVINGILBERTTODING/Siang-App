@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="@dimen/_20sdp"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_20sdp">
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popsem"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:text="Menu Project"
+                android:textSize="@dimen/_14ssp" />
+
+
+
+
+
+
+            <com.google.android.material.button.MaterialButton
+
+                android:id="@+id/btnDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="Lihat History Project"
+                android:textAllCaps="false" />
+
+            <com.google.android.material.button.MaterialButton
+
+                android:id="@+id/btnDelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Delete"
+                app:backgroundTint="@color/red"
+                android:textAllCaps="false" />
+
+
+
+            <com.google.android.material.button.MaterialButton
+
+                android:id="@+id/btnEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Edit"
+                app:backgroundTint="@color/yellow"
+                android:textColor="@color/black"
+                android:textAllCaps="false" />
+
+
+            <com.google.android.material.button.MaterialButton
+
+                android:id="@+id/btnBatal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Batal"
+                app:backgroundTint="@color/light_gray"
+                android:textColor="@color/black"
+                android:textAllCaps="false" />
+
+
+
+        </LinearLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
