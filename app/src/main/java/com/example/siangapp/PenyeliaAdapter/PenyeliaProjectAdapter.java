@@ -79,7 +79,7 @@ public class PenyeliaProjectAdapter extends RecyclerView.Adapter<PenyeliaProject
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTanggalAwal = itemView.findViewById(R.id.tvTanggalAwal);
-            tvTanggalSelesai = itemView.findViewById(R.id.tvTglSelesai);
+            tvTanggalSelesai = itemView.findViewById(R.id.tvTanggalSelesai);
             tvKegiatan = itemView.findViewById(R.id.tvKegiatan);
             tvProgress = itemView.findViewById(R.id.tvProgress);
 
