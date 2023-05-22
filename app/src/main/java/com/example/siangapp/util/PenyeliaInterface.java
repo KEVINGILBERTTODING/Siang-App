@@ -55,4 +55,17 @@ public interface PenyeliaInterface {
             @PartMap Map<String, RequestBody> textData
     );
 
+    @GET("penyelia/getAllPendaftarActiveByDivisi")
+    Call<List<PendaftarModel>> getPendaftarActive(
+            @Query("divisi") String divisi
+    );
+
+    @Multipart
+    @POST("penyelia/insertPenilaian")
+    Call<ResponseModel> insertPenilaian(
+            @PartMap Map<String, RequestBody> textData
+    );
+
+
+
 }
