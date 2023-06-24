@@ -4,94 +4,181 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:padding="20dp"
     android:layout_height="match_parent"
-    android:background="@color/main"
+    android:background="@color/white"
     tools:context=".LoginActivity">
-
-    <androidx.cardview.widget.CardView
+    <com.cashit.HeaderAnimation
+        android:id="@+id/waveHeader"
         android:layout_width="match_parent"
-        android:layout_centerInParent="true"
-        app:cardCornerRadius="15dp"
-        android:layout_height="wrap_content"
-        app:contentPadding="20dp">
+        android:layout_height="@dimen/_160sdp"
+        android:scaleY="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:animIsRunning="true"
+        app:animProgress="1"
+        app:animCloseColor="@color/main"
+    app:animVelocity="10"
+    app:animWaveHeight="20dp"
+    app:animWaves="MultiWave">
 
-        <LinearLayout
+
+</com.cashit.HeaderAnimation>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:orientation="vertical">
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:fontFamily="@font/popsem"
+            android:textSize="@dimen/_24ssp"
+            android:textColor="@color/white"
+            android:text="Sign in to your\nAccount"/>\
 
-            <ImageView
-                android:layout_width="130dp"
-                android:layout_height="120dp"
-                android:src="@drawable/main_logo"
-                android:layout_gravity="center_horizontal"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/_12ssp"
-                android:textColor="@color/black2"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/popsem"
-                android:gravity="center"
-                android:layout_gravity="center_horizontal"
-                android:text="Aplikasi Pendaftaran Magang\nDPRD JAWA TENGAH"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popmed"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="@color/white"
+            android:text="Sign in to your Account"/>
 
 
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:padding="@dimen/_10sdp"
+        android:layout_below="@id/waveHeader"
+        android:orientation="vertical">
 
-            <EditText
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popmed"
+            android:textSize="@dimen/_11ssp"
+            android:text="Silahkan Masukkan Email dan Password Anda"/>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="@dimen/_10sdp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:textColor="@color/black"
+            app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+            app:boxCornerRadiusTopStart="@dimen/_10sdp">
+
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:hint="Email"
-                android:textSize="15sp"
                 android:fontFamily="@font/popmed"
-                android:padding="11dp"
-                android:background="@drawable/container_edittext1"/>
+                android:hint="Email"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11sdp">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="@dimen/_10sdp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:textColor="@color/black"
+            app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+            app:passwordToggleEnabled="true"
+            app:boxCornerRadiusTopStart="@dimen/_10sdp">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:fontFamily="@font/popmed"
                 android:hint="Password"
                 android:inputType="textPassword"
-                android:fontFamily="@font/popmed"
-                android:padding="11dp"
-                android:textSize="15sp"
-                android:background="@drawable/container_edittext1"/>
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Login"
-                android:id="@+id/btnLogin"
-                android:layout_marginTop="20dp"/>
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11sdp">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:padding="@dimen/_10sdp"
+            android:id="@+id/btnLogin"
+            android:layout_marginTop="20dp"/>
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_gravity="center_horizontal"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Belum punya akun? "
-                    android:textSize="@dimen/_11ssp"
-                    android:fontFamily="@font/popmed"/>
+                android:text="Belum punya akun? "
+                android:textSize="@dimen/_11ssp"
+                android:fontFamily="@font/popmed"/>
 
-                <TextView
-                    android:id="@+id/tvDaftar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Daftar"
-                    android:textSize="@dimen/_11ssp"
-                    android:fontFamily="@font/popsem"/>
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/tvDaftar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Daftar"
+                android:textColor="@color/main"
+                android:textSize="@dimen/_11ssp"
+                android:fontFamily="@font/popsem"/>
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerInParent="true"
+            android:text="SIANG APP"
+            android:fontFamily="@font/popmed"
+            android:textColor="@color/black2"
+            android:textSize="@dimen/_8ssp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_centerInParent="true"
+            android:text="DPRD Jawa Tengah"
+            android:fontFamily="@font/popsem"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp" />
+
+
+    </LinearLayout>
+
 
 </RelativeLayout>

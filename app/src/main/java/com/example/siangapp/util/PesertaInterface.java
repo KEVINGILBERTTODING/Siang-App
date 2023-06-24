@@ -2,6 +2,7 @@ package com.example.siangapp.util;
 
 import com.example.siangapp.model.HistoryProjectModel;
 import com.example.siangapp.model.KegiatanModel;
+import com.example.siangapp.model.PendaftarModel;
 import com.example.siangapp.model.ProjectModel;
 import com.example.siangapp.model.ResponseModel;
 
@@ -70,6 +71,31 @@ public interface PesertaInterface {
     @POST("peserta/updateHistoryProject")
     Call<ResponseModel> updateHistory(
             @PartMap Map<String, RequestBody> textData
+    );
+
+    @GET("peserta/getPesertaById")
+    Call<PendaftarModel> getProfile(
+            @Query("user_id") String userd
+    );
+
+    @Multipart
+    @POST("peserta/updatePhotoProfile")
+    Call<ResponseModel> updatePhotoProfile(
+            @PartMap Map<String, RequestBody> textData,
+            @Part MultipartBody.Part filePart
+    );
+
+    @FormUrlEncoded
+    @POST("peserta/updateProfile")
+    Call<ResponseModel> updateProfile(
+            @Field("id") String id,
+               @Field("nama_peserta") String nama_peserta,
+                @Field("alamat") String alamat,
+                @Field("asal_sekolah") String asal_sekolah,
+                @Field("jurusan") String jurusan,
+                @Field("nim") String nim,
+                @Field("alamat_sekolah") String alamat_sekolah,
+                @Field("no_telp") String no_telp
     );
 
 

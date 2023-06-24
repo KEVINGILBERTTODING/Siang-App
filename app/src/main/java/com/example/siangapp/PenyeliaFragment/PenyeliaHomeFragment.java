@@ -18,6 +18,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.siangapp.AdminFragment.AdminDivisiFragment;
 import com.example.siangapp.AdminFragment.AdminLaporanMahasiswaFragment;
 import com.example.siangapp.AdminFragment.AdminVerifikasiMahasiswaFragment;
+import com.example.siangapp.FragmentPesertaMagang.ProfileFragment;
 import com.example.siangapp.R;
 import com.example.siangapp.model.PendaftarModel;
 import com.example.siangapp.util.DataApi;
@@ -68,6 +69,13 @@ public class PenyeliaHomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 replace(new PenyeliaMahasiswaFragment());
+            }
+        });
+
+        ivProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replace(new ProfileFragment());
             }
         });
 

@@ -6,7 +6,9 @@ import static java.security.AccessController.getContext;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -66,26 +68,9 @@ public class AdminDataMahasiswaAdapter extends RecyclerView.Adapter<AdminDataMah
             @Override
             public void onClick(View v) {
                 String url = DataApi.URL_DOWNLOAD_SURAT_KETERANGAN+pendaftarModelList.get(holder.getAdapterPosition()).getUserId();
-                String title = pendaftarModelList.get(holder.getAdapterPosition()).getCertificate() +".pdf";
-                String description = "Downloading PDF file";
-                String fileName = pendaftarModelList.get(holder.getAdapterPosition()).getCertificate()  + ".pdf";
-
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (context.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
-
-                        String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
-                    } else {
-
-                        FileDownload fileDownload = new FileDownload(context);
-                        fileDownload.downloadFile(url, title, description, fileName);
-
-                    }
-                } else {
-
-                    FileDownload fileDownload = new FileDownload(context);
-                    fileDownload.downloadFile(url, title, description, fileName);
-                }
+                Intent intent =  new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                context.startActivity(intent);
             }
         });
 

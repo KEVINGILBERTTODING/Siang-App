@@ -1,7 +1,9 @@
 package com.example.siangapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -33,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText etNamaLengkap, etAlamat, etAsalSekolah, etAlamatSekolah,
     etJurusan, etNimm,etEmail, etTelepon,etPassword, etPasswordKonfirm;
     Button btnRegister;
+    private BottomSheetBehavior bottomSheetBehavior;
     Spinner spJk, spAgama;
     String agama, jenisKelamin;
     String [] opsiJk = {"Laki-laki", "Perempuan"};
@@ -51,6 +55,21 @@ public class RegisterActivity extends AppCompatActivity {
         ArrayAdapter adapterJk = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, opsiJk);
         adapterJk.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spJk.setAdapter(adapterJk);
+        RelativeLayout bottomSheet = findViewById(R.id.bottomSheet);
+
+        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
+        bottomSheetBehavior.setHideable(false); // Setelah ditambahkan, pastikan bottom sheet tidak bisa disembunyikan
+        bottomSheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+
+            }
+
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+
+            }
+        });
 
         spJk.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -250,6 +269,8 @@ public class RegisterActivity extends AppCompatActivity {
         spJk = findViewById(R.id.spJk);
         btnRegister = findViewById(R.id.btnRegister);
         spAgama = findViewById(R.id.spAgama);
+
+
 
 
     }

@@ -31,6 +31,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.siangapp.AllAdapter.SpinnerDivisiAdapter;
 import com.example.siangapp.FragmentPesertaMagang.PesertaKegiatanFragment;
 import com.example.siangapp.FragmentPesertaMagang.PesertaProjectFragment;
+import com.example.siangapp.FragmentPesertaMagang.ProfileFragment;
 import com.example.siangapp.R;
 import com.example.siangapp.model.DivisiModel;
 import com.example.siangapp.model.PendaftarModel;
@@ -94,6 +95,13 @@ public class AdminHomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 replace(new AdminDivisiFragment());
+            }
+        });
+
+        ivProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replace(new ProfileFragment());
             }
         });
 

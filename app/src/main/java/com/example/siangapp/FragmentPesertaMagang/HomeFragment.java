@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.provider.OpenableColumns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,6 +90,13 @@ public class HomeFragment extends Fragment {
         pendaftarInterface = DataApi.getClient().create(PendaftarInterface.class);
 
         loadDataUser();
+
+        ivProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replace(new ProfileFragment());
+            }
+        });
 
         cvKegiatan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -258,6 +266,8 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
+
         btnFilePicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -348,22 +358,20 @@ public class HomeFragment extends Fragment {
     }
 
 
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
 
         if (resultCode == RESULT_OK && data != null) {
             if (requestCode == 1) {
                 Uri uri = data.getData();
                 String pdfPath = getRealPathFromUri(uri);
                 file = new File(pdfPath);
-               etFilePath.setText(file.getName());
-            }else{
+                etFilePath.setText(file.getName());
             }
         }
     }
-
 
     public String getRealPathFromUri(Uri uri) {
         String filePath = "";
@@ -386,7 +394,10 @@ public class HomeFragment extends Fragment {
             Cursor cursor = getContext().getContentResolver().query(uri, null, null, null, null);
             try {
                 if (cursor != null && cursor.moveToFirst()) {
-
+                    int displayNameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+                    if (displayNameIndex != -1) {
+                        result = cursor.getString(displayNameIndex);
+                    }
                 }
             } finally {
                 if (cursor != null) {
@@ -403,6 +414,7 @@ public class HomeFragment extends Fragment {
         }
         return result;
     }
+
 
     private void writeFile(InputStream inputStream, File file) throws IOException {
         OutputStream outputStream = new FileOutputStream(file);

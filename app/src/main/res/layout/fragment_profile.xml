@@ -3,11 +3,104 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentPesertaMagang.ProfileFragment">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogOut"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/main"
+        android:padding="@dimen/_10sdp"
+        android:id="@+id/rl"
+        android:layout_height="@dimen/_120sdp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/tvUsername"
+            android:fontFamily="@font/popsem"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_toLeftOf="@id/tvSimpan"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13ssp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/tvSimpan"
+            android:fontFamily="@font/popsem"
+            android:text="Simpan"
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13ssp"
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="@dimen/_90sdp"
+        android:layout_marginTop="@dimen/_70sdp"
+        android:id="@+id/rlFoto"
+        android:layout_centerHorizontal="true"
+        android:layout_height="@dimen/_90sdp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/ivProfile"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
+            app:civ_border_width="@dimen/_3sdp"
+            app:civ_border_color="@color/white"/>
+
+        <ImageButton
+            android:layout_width="@dimen/_30sdp"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/btnFilePicker"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/ic_edit"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Keluar"/>
+        android:layout_below="@id/rlFoto"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:orientation="vertical">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl"
+            app:iconTint="@color/main"
+            app:backgroundTint="#D9D9D9"
+            app:icon="@drawable/baseline_edit_24"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:fontFamily="@font/popmed"
+            android:textColor="@color/main"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:text="Ubah Profil" />
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl"
+            app:iconTint="@color/main"
+            app:icon="@drawable/baseline_logout_24"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:backgroundTint="#D9D9D9"
+            android:textColor="@color/main"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:text="Keluar" />
+
+    </LinearLayout>
+
+
+
+
+
+
+
 </RelativeLayout>

@@ -10,6 +10,8 @@ import java.util.Map;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -69,6 +71,15 @@ public interface PenyeliaInterface {
     @GET("penyelia/getAllPendaftarSelesai")
     Call<List<PendaftarModel>> getAllPendaftarSelesai(
             @Query("divisi") String divisi
+    );
+
+    @FormUrlEncoded
+    @POST("penyelia/updateProfile")
+    Call<ResponseModel> updateProfile(
+            @Field("id") String id,
+            @Field("nama_peserta") String namaPeserta,
+            @Field("alamat") String alamat,
+            @Field("password") String password
     );
 
 

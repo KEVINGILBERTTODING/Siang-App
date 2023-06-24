@@ -18,6 +18,9 @@ public class PendaftarModel implements Serializable {
     @SerializedName("image")
     String image;
 
+    @SerializedName("nama_penyelia")
+    String namaPenyelia;
+
 
 
     @SerializedName("alamat")
@@ -91,10 +94,11 @@ public class PendaftarModel implements Serializable {
     String rata;
 
 
-    public PendaftarModel(String userId, String disiplin, String kerjaSama, String inovasi
+    public PendaftarModel(String userId, String disiplin, String kerjaSama, String inovasi, String namaPenyelia
                           ,String rata, String name, String nim, String image, String address, String gender, String religion, String school, String schoolAddress, String major, String email, String phoneNumber, String password, Integer roleId, String dataCreated, Integer division, String certificate, String startDate, String endDate, String acc, String reason, Integer status, Integer rating, Integer task) {
         this.userId = userId;
         this.name = name;
+        this.namaPenyelia = namaPenyelia;
         this.nim = nim;
         this.image = image;
         this.address = address;
@@ -345,5 +349,13 @@ public class PendaftarModel implements Serializable {
 
     public void setRata(String rata) {
         this.rata = rata;
+    }
+
+    public String getNamaPenyelia() {
+        return namaPenyelia;
+    }
+
+    public void setNamaPenyelia(String namaPenyelia) {
+        this.namaPenyelia = namaPenyelia;
     }
 }
