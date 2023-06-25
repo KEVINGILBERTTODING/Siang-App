@@ -262,7 +262,7 @@ public class RegisterActivity extends AppCompatActivity {
         etJurusan = findViewById(R.id.etJurusan);
         etNimm = findViewById(R.id.etNim);
         etEmail = findViewById(R.id.etEmail);
-        etTelepon = findViewById(R.id.etTelepon);
+        etTelepon = findViewById(R.id.etNoTelp);
         etPassword = findViewById(R.id.etPassword);
         etPasswordKonfirm = findViewById(R.id.etPassKonfir);
 
