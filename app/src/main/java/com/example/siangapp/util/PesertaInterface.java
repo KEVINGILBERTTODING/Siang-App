@@ -77,6 +77,12 @@ public interface PesertaInterface {
     Call<PendaftarModel> getProfile(
             @Query("user_id") String userd
     );
+    @GET("peserta/getPesertaById2")
+    Call<PendaftarModel> getProfile2(
+            @Query("user_id") String userd
+    );
+
+
 
     @Multipart
     @POST("peserta/updatePhotoProfile")

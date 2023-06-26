@@ -125,7 +125,7 @@ public class AdminHomeFragment extends Fragment {
         progressBar.show();
 
 
-        pendaftarInterface.getUserById(userId).enqueue(new Callback<PendaftarModel>() {
+        pendaftarInterface.getProfile2(userId).enqueue(new Callback<PendaftarModel>() {
             @Override
             public void onResponse(Call<PendaftarModel> call, Response<PendaftarModel> response) {
                 if (response.isSuccessful() && response.body() != null) {

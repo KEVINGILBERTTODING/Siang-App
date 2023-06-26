@@ -86,15 +86,13 @@ public class ProfileFragment extends Fragment {
         listener();
         getProfile();
 
-
-
         return  view;
     }
 
 
     private void getProfile() {
         showProgressBar("Loading", "Memuat data...", true);
-        pesertaInterface.getProfile(userId).enqueue(new Callback<PendaftarModel>() {
+        pesertaInterface.getProfile2(userId).enqueue(new Callback<PendaftarModel>() {
             @Override
             public void onResponse(Call<PendaftarModel> call, Response<PendaftarModel> response) {
                 showProgressBar("s", "s", false);

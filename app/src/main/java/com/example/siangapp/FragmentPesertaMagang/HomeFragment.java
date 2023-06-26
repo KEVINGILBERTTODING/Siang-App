@@ -17,6 +17,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.provider.OpenableColumns;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -124,7 +125,7 @@ public class HomeFragment extends Fragment {
         progressBar.show();
 
 
-        pendaftarInterface.getUserById(userId).enqueue(new Callback<PendaftarModel>() {
+        pendaftarInterface.getProfile2(userId).enqueue(new Callback<PendaftarModel>() {
             @Override
             public void onResponse(Call<PendaftarModel> call, Response<PendaftarModel> response) {
                 if (response.isSuccessful() && response.body() != null) {

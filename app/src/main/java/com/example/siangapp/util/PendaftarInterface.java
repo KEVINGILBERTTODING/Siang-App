@@ -23,6 +23,10 @@ public interface PendaftarInterface {
     Call<PendaftarModel> getUserById(
             @Query("user_id") String userId
     );
+    @GET("peserta/getPesertaById2")
+    Call<PendaftarModel> getProfile2(
+            @Query("user_id") String userd
+    );
 
     @GET("peserta/getAllDivisi")
     Call<List<DivisiModel>> getAllDivisi();
