@@ -185,8 +185,6 @@ public class ProfileFragment extends Fragment {
                     showToast("success","Berhasil mengubah foto profile");
                     tvSimpan.setVisibility(View.GONE);
 
-
-
                 }else{
                     showToast("err",response.body().getMessage());
 

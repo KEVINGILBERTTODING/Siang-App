@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="@dimen/_20sdp"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_20sdp">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/sad_animation"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/failed_anim" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popsem"
+                android:textColor="@color/red"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="Pemberitahuan"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popmed"
+                android:textColor="@color/black2"
+                android:gravity="center"
+                android:text="Mohon maaf, kuota peserta magang pada tahun ini telah terisi penuh."
+
+                android:textSize="@dimen/_11ssp" />
+
+
+
+            <com.google.android.material.button.MaterialButton
+
+                android:id="@+id/btnOke"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="Oke"
+                android:textAllCaps="false" />
+
+
+        </LinearLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

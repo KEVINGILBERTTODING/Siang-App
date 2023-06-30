@@ -3,6 +3,7 @@ package com.example.siangapp;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.example.siangapp.model.ResponseModel;
 import com.example.siangapp.util.AuthInterface;
 import com.example.siangapp.util.DataApi;
+import com.example.siangapp.util.PesertaInterface;
 
 import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
@@ -26,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText etEmail, etPassword;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    private PesertaInterface pesertaInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,16 +54,14 @@ public class LoginActivity extends AppCompatActivity {
         tvDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+
+                register();
+
             }
         });
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
-
 
                 if (etEmail.getText().toString().isEmpty()) {
                     Toasty.error(getApplicationContext(), "Field email tidak boleh kosong", Toasty.LENGTH_SHORT).show();
@@ -134,6 +135,46 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+
+    private void register() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
+        alert.setTitle("Loading").setMessage("Cek kuota magang").setCancelable(false);
+        AlertDialog pd = alert.create();
+        pd.show();
+
+        pesertaInterface.cekKuotaMagang().enqueue(new Callback<ResponseModel>() {
+            @Override
+            public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                pd.dismiss();
+                if (response.isSuccessful() && response.body().getCode() == 200) {
+                    startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                }else {
+                    Dialog dialog = new Dialog(LoginActivity.this);
+                    dialog.setContentView(R.layout.layout_alert);
+                    dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                    Button btnOke = dialog.findViewById(R.id.btnOke);
+                    dialog.show();
+
+                    btnOke.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseModel> call, Throwable t) {
+                Toasty.error(LoginActivity.this, "Tidak ada koneksi internet", Toasty.LENGTH_SHORT).show();
+
+            }
+        });
+
+    }
+
+
     private void init() {
         tvDaftar = findViewById(R.id.tvDaftar);
         btnLogin = findViewById(R.id.btnLogin);
@@ -141,5 +182,7 @@ public class LoginActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
         sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE);
         editor = sharedPreferences.edit();
+        pesertaInterface = DataApi.getClient().create(PesertaInterface.class);
     }
+
 }

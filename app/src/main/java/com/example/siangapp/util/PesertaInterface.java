@@ -104,6 +104,9 @@ public interface PesertaInterface {
                 @Field("no_telp") String no_telp
     );
 
+    @GET("peserta/validasiKuotaMagang")
+    Call<ResponseModel> cekKuotaMagang();
+
 
 
 
