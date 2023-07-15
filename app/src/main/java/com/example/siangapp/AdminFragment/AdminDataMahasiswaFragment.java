@@ -1,12 +1,18 @@
 package com.example.siangapp.AdminFragment;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.SearchView;
@@ -42,6 +48,7 @@ public class AdminDataMahasiswaFragment extends Fragment {
     LinearLayoutManager linearLayoutManager;
     SharedPreferences sharedPreferences;
     String userId;
+    private FloatingActionButton fabFilter;
     AdminInterface adminInterface;
 
     @Override
@@ -54,9 +61,12 @@ public class AdminDataMahasiswaFragment extends Fragment {
         userId = sharedPreferences.getString("user_id", null);
         pendaftarInterface = DataApi.getClient().create(PendaftarInterface.class);
         tvEmpty = view.findViewById(R.id.tvEmpty);
+        fabFilter = view.findViewById(R.id.btnFilter);
         divisi = getArguments().getString("divisi");
         searchView = view.findViewById(R.id.searchView);
         getData();
+
+        filterData();
 
 
 
@@ -123,6 +133,81 @@ public class AdminDataMahasiswaFragment extends Fragment {
 
 
     }
+
+    private void filterData() {
+        fabFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialogFilter = new Dialog(getContext());
+                dialogFilter.setContentView(R.layout.layout_filter);
+                dialogFilter.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                TextView tvDateStart, tvDateEnd;
+                Button btnDownload, btnBatal;
+                tvDateStart = dialogFilter.findViewById(R.id.etDateStart);
+                tvDateEnd = dialogFilter.findViewById(R.id.etDateEnd);
+                btnDownload = dialogFilter.findViewById(R.id.btnDownload);
+                btnBatal = dialogFilter.findViewById(R.id.btnBatal);
+
+                dialogFilter.show();
+
+                tvDateEnd.setOnClickListener(View -> {
+                    getDatePicker(tvDateEnd);
+                });
+
+                tvDateStart.setOnClickListener(View -> {
+                    getDatePicker(tvDateStart);
+                });
+
+                btnDownload.setOnClickListener(View -> {
+                    if (tvDateStart.getText().toString().isEmpty()) {
+                        tvDateStart.setError("Tidak boleh kosong");
+                    }else if (tvDateEnd.getText().toString().isEmpty()) {
+                        tvDateEnd.setError("Tidak boleh kosong");
+                    }else {
+                       String Url = DataApi.URL_DOWNLOAD_REKAP_ANAK_MAGANG + tvDateStart.getText().toString() + "/" + tvDateEnd.getText().toString();
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse(Url));
+                        startActivity(intent);
+                    }
+
+                });
+
+                btnBatal.setOnClickListener(View -> {
+                    dialogFilter.dismiss();
+                });
+            }
+        });
+    }
+
+    private void getDatePicker(TextView tvDate) {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getContext());
+        datePickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                String dateFormatted, monthFormatted;
+
+                if (month < 10) {
+                    monthFormatted = String.format("%02d", month + 1);
+                }else {
+                    monthFormatted = String.valueOf(month + 1);
+                }
+
+                if (dayOfMonth < 10) {
+                    dateFormatted = String.format("%02d", dayOfMonth);
+                }else {
+                    dateFormatted = String.valueOf(dayOfMonth);
+                }
+                tvDate.setText(year + "-" + monthFormatted + "-" + dateFormatted);
+            }
+
+
+
+        });
+        datePickerDialog.show();
+
+    }
+
+
 
 
     private void filter(String newText) {

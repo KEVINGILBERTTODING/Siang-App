@@ -8,6 +8,7 @@ public class DataApi {
     public static final String Base_URL ="http://"+IP_ADDRESS+"/ci_siang/api/";
     public static final String URL_PHOTO_PROFILE = "http://" + IP_ADDRESS + "/ci_siang/assets/img/profile/";
     public static final String URL_DOWNLOAD_SURAT_KETERANGAN = "http://" + IP_ADDRESS +"/ci_siang/api/admin/downloadSuratKeterangan/";
+    public static final String URL_DOWNLOAD_REKAP_ANAK_MAGANG = "http://" + IP_ADDRESS +"/ci_siang/api/admin/downloadLaporan/";
     public static Retrofit retrofit = null;
     public static  Retrofit getClient() {
         if (retrofit == null) {
