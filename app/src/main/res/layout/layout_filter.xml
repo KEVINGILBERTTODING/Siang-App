@@ -65,15 +65,23 @@
                 android:padding="@dimen/_10sdp"
                 android:textSize="@dimen/_11ssp" />
 
+            <com.google.android.material.button.MaterialButton
 
+                android:id="@+id/btnFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="Filter"
+                android:textAllCaps="false" />
 
             <com.google.android.material.button.MaterialButton
 
                 android:id="@+id/btnDownload"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:text="Download"
+                app:backgroundTint="@color/green"
                 android:textAllCaps="false" />
 
             <com.google.android.material.button.MaterialButton

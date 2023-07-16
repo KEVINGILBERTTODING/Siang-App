@@ -3,6 +3,7 @@ package com.example.siangapp.AdminFragment;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -142,10 +143,11 @@ public class AdminDataMahasiswaFragment extends Fragment {
                 dialogFilter.setContentView(R.layout.layout_filter);
                 dialogFilter.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 TextView tvDateStart, tvDateEnd;
-                Button btnDownload, btnBatal;
+                Button btnDownload, btnBatal, btnFilter;
                 tvDateStart = dialogFilter.findViewById(R.id.etDateStart);
                 tvDateEnd = dialogFilter.findViewById(R.id.etDateEnd);
                 btnDownload = dialogFilter.findViewById(R.id.btnDownload);
+                btnFilter = dialogFilter.findViewById(R.id.btnFilter);
                 btnBatal = dialogFilter.findViewById(R.id.btnBatal);
 
                 dialogFilter.show();
@@ -157,6 +159,52 @@ public class AdminDataMahasiswaFragment extends Fragment {
                 tvDateStart.setOnClickListener(View -> {
                     getDatePicker(tvDateStart);
                 });
+
+                btnFilter.setOnClickListener(View -> {
+                    if (tvDateStart.getText().toString().isEmpty()) {
+                        tvDateStart.setError("Tidak boleh kosong");
+                    }else if (tvDateEnd.getText().toString().isEmpty()) {
+                        tvDateEnd.setError("Tidak boleh kosong");
+                    }else {
+                        rvVerifPeserta.setAdapter(null);
+                        AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
+                        alert.setTitle("Loading").setMessage("Memuat data...").setCancelable(false);
+                        AlertDialog progressBar = alert.create();
+                        progressBar.show();
+                        adminInterface.filterPedaftaran(
+                                divisi, tvDateStart.getText().toString(), tvDateEnd.getText().toString()
+                        ).enqueue(new Callback<List<PendaftarModel>>() {
+                            @Override
+                            public void onResponse(Call<List<PendaftarModel>> call, Response<List<PendaftarModel>> response) {
+                                progressBar.dismiss();
+                                if (response.isSuccessful() && response.body() != null) {
+                                    dialogFilter.dismiss();
+                                    pendaftarModelList = response.body();
+                                    adminDataMahasiswaAdapter = new AdminDataMahasiswaAdapter(getContext(), pendaftarModelList);
+                                    linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+                                    rvVerifPeserta.setAdapter(adminDataMahasiswaAdapter);
+                                    rvVerifPeserta.setLayoutManager(linearLayoutManager);
+                                    rvVerifPeserta.setHasFixedSize(true);
+                                }else {
+                                    dialogFilter.dismiss();
+                                    Toasty.normal(getContext(), "Tidak ada data", Toasty.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<List<PendaftarModel>> call, Throwable t) {
+                                progressBar.dismiss();
+                                Toasty.error(getContext(), "Tidak ada koneksi internet", Toasty.LENGTH_SHORT).show();
+
+
+                            }
+                        });
+
+                    }
+
+                });
+
+
 
                 btnDownload.setOnClickListener(View -> {
                     if (tvDateStart.getText().toString().isEmpty()) {

@@ -48,6 +48,13 @@ public interface AdminInterface {
     Call<List<PendaftarModel>> getPesertaAcc(
     );
 
+    @GET("admin/getPesertaByDivisiFilter")
+    Call<List<PendaftarModel>> filterPedaftaran(
+            @Query("divisi") String divisi,
+            @Query("date_start") String dateStart,
+            @Query("date_end") String dateEnd
+    );
+
 
 
 
